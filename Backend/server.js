@@ -4,13 +4,14 @@ const { chats } = require("./data/data.js");
 const connectDB = require("./config/db.js");
 const colors = require("colors");
 const app = express();
-const userRoutes = require("./routes/userRoutes.js");
+const userRoutes = require("./routes/userRoutes");
 dotenv.config;
 connectDB();
 
-app.get("/", (req, res) => {
+app.post("/", (req, res) => {
   res.send("Hello, Express!");
 });
+app.use(express.json());
 
 app.use("/api/user", userRoutes);
 
